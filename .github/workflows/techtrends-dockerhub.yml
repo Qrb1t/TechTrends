@@ -34,8 +34,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: TechTrends/techtrends
-          file: TechTrends/techtrends/Dockerfile
+          context: .
+          file: /techtrends/Dockerfile
           platforms: linux/amd64
           push: true
           tags: qrbit/techtrends:latest
