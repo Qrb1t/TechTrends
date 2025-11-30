@@ -19,6 +19,13 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
+        name: Debug repo structure
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Listing files:"
+          ls -R
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
