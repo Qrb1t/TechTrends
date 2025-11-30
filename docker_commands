@@ -1,11 +1,40 @@
 ## Docker commands used to build the application 
 # TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
 # TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
 # TODO: insert the docker logs command
+docker logs e5fbdf59b9435fb54670ab0cd72951289be376562616266eb153507165b89df3
 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING:app:11/30/2025, 12:33:12,  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:app:11/30/2025, 12:33:12,  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:app:11/30/2025, 12:33:52, 172.17.0.1 - - [30/Nov/2025 12:33:52] "GET / HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:33:52, 172.17.0.1 - - [30/Nov/2025 12:33:52] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:33:52, 172.17.0.1 - - [30/Nov/2025 12:33:52] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:11/30/2025, 12:38:04, 11/30/2025, 12:38:04, About Us page retrieved!
+INFO:app:11/30/2025, 12:38:04, 172.17.0.1 - - [30/Nov/2025 12:38:04] "GET /about HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:38:04, 172.17.0.1 - - [30/Nov/2025 12:38:04] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:11/30/2025, 12:38:06, 172.17.0.1 - - [30/Nov/2025 12:38:06] "GET /create HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:38:06, 172.17.0.1 - - [30/Nov/2025 12:38:06] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:11/30/2025, 12:38:25, 11/30/2025, 12:38:25, New article "Test post" created!
+INFO:app:11/30/2025, 12:38:25, 172.17.0.1 - - [30/Nov/2025 12:38:25] "POST /create HTTP/1.1" 302 -
+INFO:app:11/30/2025, 12:38:25, 172.17.0.1 - - [30/Nov/2025 12:38:25] "GET / HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:38:25, 172.17.0.1 - - [30/Nov/2025 12:38:25] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:11/30/2025, 12:38:32, 11/30/2025, 12:38:32, Article "KubeCon + CloudNativeCon 2021" retrieved!
+INFO:app:11/30/2025, 12:38:32, 172.17.0.1 - - [30/Nov/2025 12:38:32] "GET /2 HTTP/1.1" 200 -
+INFO:app:11/30/2025, 12:38:32, 172.17.0.1 - - [30/Nov/2025 12:38:32] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:11/30/2025, 12:38:38, 11/30/2025, 12:38:38, Non-existing article with id 12 accessed, returning 404
+INFO:app:11/30/2025, 12:38:38, 172.17.0.1 - - [30/Nov/2025 12:38:38] "GET /12 HTTP/1.1" 404 -
+INFO:app:11/30/2025, 12:38:38, 172.17.0.1 - - [30/Nov/2025 12:38:38] "GET /static/css/main.css HTTP/1.1" 304 -
