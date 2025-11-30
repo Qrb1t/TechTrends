@@ -29,11 +29,7 @@ spec:
             httpGet:
               path: /healthz
               port: 3111
-            initialDelaySeconds: 5
-            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /healthz
               port: 3111
-            initialDelaySeconds: 5
-            periodSeconds: 10
