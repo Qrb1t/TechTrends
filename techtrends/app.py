@@ -8,13 +8,26 @@ from werkzeug.exceptions import abort
 # Global counter for DB connections
 db_connection_count = 0
 
-# Configure logging to STDOUT with timestamp and DEBUG level
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(levelname)s:app:%(asctime)s, %(message)s",
-    datefmt="%m/%d/%Y, %H:%M:%S",
-    handlers=[logging.StreamHandler(sys.stdout)]
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter(
+    "%(levelname)s:app:%(asctime)s, %(message)s",
+    datefmt="%m/%d/%Y, %H:%M:%S"
 )
+
+# STDOUT handler (DEBUG/INFO)
+stdout_handler = logging.StreamHandler(sys.stdout)
+stdout_handler.setLevel(logging.DEBUG)
+stdout_handler.setFormatter(formatter)
+
+# STDERR handler (WARNING and above)
+stderr_handler = logging.StreamHandler(sys.stderr)
+stderr_handler.setLevel(logging.WARNING)
+stderr_handler.setFormatter(formatter)
+
+# Attach handlers
+logger.handlers = [stdout_handler, stderr_handler]
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -51,7 +64,7 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        logging.info(f"{datetime.now().strftime('%m/%d/%Y, %H:%M:%S')}, Non-existing article with id {post_id} accessed, returning 404")
+        logging.error(f"{datetime.now().strftime('%m/%d/%Y, %H:%M:%S')}, Non-existing article with id {post_id} accessed, returning 404")
         return render_template('404.html'), 404
     else:
         logging.info(f"{datetime.now().strftime('%m/%d/%Y, %H:%M:%S')}, Article \"{post['title']}\" retrieved!")
